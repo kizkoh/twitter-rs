@@ -44,7 +44,7 @@ fn percent_encode(src: &str) -> String {
 ///On the other hand, `signature` is optional so a structured header can be
 ///passed to `sign()` for signature.
 #[derive(Clone, Debug)]
-struct TwitterOAuth {
+pub struct TwitterOAuth {
     consumer_key: String,
     nonce: String,
     signature: Option<String>,
@@ -239,7 +239,7 @@ fn sign(header: TwitterOAuth,
 }
 
 ///With the given method parameters, return a signed OAuth header.
-fn get_header(method: Method,
+pub fn get_header(method: Method,
               uri: &str,
               con_token: &KeyPair,
               access_token: Option<&KeyPair>,
